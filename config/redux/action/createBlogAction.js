@@ -15,7 +15,7 @@ export const postToAPI = (form) => {
   data.append("image", form.image);
 
   axios
-    .post("http://localhost:4000/v1/blog/post", data, {
+    .post(`${process.env.BASE_URL_BLOG}/post`, data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -35,7 +35,7 @@ export const updateToAPI = (form, id) => {
   data.append("image", form.image);
 
   axios
-    .put(`http://localhost:4000/v1/blog/post/${id}`, data, {
+    .put(`${process.env.BASE_URL_BLOG}/post/${id}`, data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

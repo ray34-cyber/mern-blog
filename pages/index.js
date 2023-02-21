@@ -35,7 +35,7 @@ const Home = () => {
           label: "Ya",
           onClick: () => {
             axios
-              .delete(`http://localhost:4000/v1/blog/post/${id}`)
+              .delete(`${process.env.BASE_URL_BLOG}/post/${id}`)
               .then((res) => {
                 console.log("Success delete: ", res.data);
                 dispatch(setDataBlog(counter));
@@ -62,7 +62,7 @@ const Home = () => {
         <Gap height={20} />
         <div className="flex flex-wrap justify-between">
           {dataBlog.map((blog) => {
-            return <BlogItem key={blog._id} image={`http://localhost:4000/${blog.image}`} title={blog.title} body={blog.body} name={blog.author.name} date={blog.createdAt} _id={blog._id} onDelete={confirmDelete} />;
+            return <BlogItem key={blog._id} image={`https://mern-api-two.vercel.app/${blog.image}`} title={blog.title} body={blog.body} name={blog.author.name} date={blog.createdAt} _id={blog._id} onDelete={confirmDelete} />;
           })}
         </div>
         <div className="w-[400px] flex mx-auto">
