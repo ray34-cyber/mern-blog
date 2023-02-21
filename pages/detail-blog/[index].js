@@ -10,7 +10,7 @@ const DetailBlog = () => {
   useEffect(() => {
     const id = router.query.index;
     axios
-      .get(`http://localhost:4000/v1/blog/post/${id}`)
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL_BLOG}/post/${id}`)
       .then((res) => {
         console.log(res);
         setData(res.data.data);
@@ -22,7 +22,7 @@ const DetailBlog = () => {
   if (data.author) {
     return (
       <div className="">
-        <img className="w-full h-[300px] object-cover" src={`http://localhost:4000/${data.image}`} alt="thumb" />
+        <img className="w-full h-[300px] object-cover" src={`${process.env.NEXT_PUBLIC_BASE_URL}/${data.image}`} alt="thumb" />
         <p className="text-[30px] font-bold text-[#2d2d2d] m-0 mt-5">{data.title}</p>
         <p className="text-[16px] text-[grey] m-0">
           {data.author.name} - {data.createdAt}

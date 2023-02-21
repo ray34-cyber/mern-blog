@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { useDispatch, useSelector } from "react-redux";
-import { postToAPI, setForm, setImgPreview, updateToAPI } from "@/config/redux/action";
+import { setForm, setImgPreview, updateToAPI } from "@/config/redux/action";
 import axios from "axios";
 
 const CreateBlog = () => {
@@ -15,13 +15,13 @@ const CreateBlog = () => {
   useEffect(() => {
     const id = router.query.id;
     axios
-      .get(`http://localhost:4000/v1/blog/post/${id}`)
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL_BLOG}/post/${id}`)
       .then((res) => {
         const data = res.data.data;
         console.log(data);
         dispatch(setForm("title", data.title));
         dispatch(setForm("body", data.body));
-        dispatch(setImgPreview(`http://localhost:4000/${data.image}`));
+        dispatch(setImgPreview(`${process.env.NEXT_PUBLIC_BASE_URL}/${data.image}`));
       })
       .catch((err) => {
         console.log(err);

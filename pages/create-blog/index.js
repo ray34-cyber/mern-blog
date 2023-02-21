@@ -1,5 +1,4 @@
 import { Input, Upload, Button, TextArea, Gap, Link } from "@/components";
-import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { useDispatch, useSelector } from "react-redux";

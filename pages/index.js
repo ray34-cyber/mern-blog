@@ -62,7 +62,7 @@ const Home = () => {
         <Gap height={20} />
         <div className="flex flex-wrap justify-between">
           {dataBlog.map((blog) => {
-            return <BlogItem key={blog._id} image={`${process.env.NEXT_PUBLIC_BASE_URL_BLOG}/${blog.image}`} title={blog.title} body={blog.body} name={blog.author.name} date={blog.createdAt} _id={blog._id} onDelete={confirmDelete} />;
+            return <BlogItem key={blog._id} image={`${process.env.NEXT_PUBLIC_BASE_URL}/${blog.image}`} title={blog.title} body={blog.body} name={blog.author.name} date={blog.createdAt} _id={blog._id} onDelete={confirmDelete} />;
           })}
         </div>
         <div className="w-[400px] flex mx-auto">
