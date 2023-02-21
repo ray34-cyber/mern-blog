@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const setDataBlog = (page) => (dispatch) => {
   axios
-    .get(`${process.env.BASE_URL_BLOG}/posts?page=${page}&perPage=2`)
+    .get(`${process.env.NEXT_PUBLIC_BASE_URL_BLOG}/posts?page=${page}&perPage=2`)
     .then((result) => {
       const responseAPI = result.data;
 

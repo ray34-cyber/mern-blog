@@ -35,7 +35,7 @@ const Home = () => {
           label: "Ya",
           onClick: () => {
             axios
-              .delete(`${process.env.BASE_URL_BLOG}/post/${id}`)
+              .delete(`${process.env.NEXT_PUBLIC_BASE_URL_BLOG}/post/${id}`)
               .then((res) => {
                 console.log("Success delete: ", res.data);
                 dispatch(setDataBlog(counter));
